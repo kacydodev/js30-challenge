@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@layer base {
+	html,
+	body,
+	#app {
+		@apply h-full;
+	}
+
+	#app {
+		@apply flex flex-col;
+		main {
+			@apply grow shrink-0;
+		}
+		footer {
+			@apply shrink;
+		}
+	}
+}
+
+@layer components {
+	footer {
+		@apply flex gap-6 justify-center;
+	}
+}
