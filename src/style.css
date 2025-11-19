@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --animate-ripple: ripple 1s ease-out;
+}
+
 @layer base {
 	html,
 	body,
@@ -19,7 +23,37 @@
 }
 
 @layer components {
+  main {
+    @apply flex items-center justify-center bg-[url(./assets/background.jpg)];
+  }
+
+  div.keys {
+    @apply flex flex-wrap gap-8;
+  }
+
+  div.key {
+    @apply relative w-18 p-3 flex flex-col items-center bg-black/70;
+    /* @apply bg-red-500 animate-ping; */
+    kbd {
+      @apply text-2xl text-white;
+    }
+    span.sound {
+      @apply text-xs text-yellow-500 uppercase;
+    }
+  }
+
 	footer {
 		@apply flex gap-6 justify-center;
 	}
+}
+
+@keyframes ripple {
+  50% {
+    @apply bg-red-500;
+  }
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 100%;
+  }
 }
