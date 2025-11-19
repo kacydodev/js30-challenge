@@ -49,4 +49,27 @@ export function setupMain(element: HTMLElement) {
     <audio data-key="75" src="src/assets/sounds/tom.wav"></audio>
     <audio data-key="76" src="src/assets/sounds/tink.wav"></audio>
   `;
+
+	playAudioOnClick();
+}
+
+function playAudioOnClick() {
+	const keys = document.querySelectorAll('.key');
+
+	// const buttonEffect = document.createElement('div');
+	// buttonEffect.className = 'absolute top-0 w-full h-full animate-ripple';
+
+	Array.from(keys).map((key) => {
+		key.addEventListener('click', () => {
+			const id = key.getAttribute('data-key');
+			const audio: HTMLAudioElement | null = document.querySelector(
+				`audio[data-key='${id}']`
+			);
+			if (audio) {
+				audio.play();
+				// key.append(buttonEffect);
+				// console.log(key);
+			}
+		});
+	});
 }
