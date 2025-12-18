@@ -56,8 +56,9 @@ export function setupMain(element: HTMLElement) {
 function playAudioOnClick() {
 	const keys = document.querySelectorAll('.key');
 
-	// const buttonEffect = document.createElement('div');
-	// buttonEffect.className = 'absolute top-0 w-full h-full animate-ripple';
+	const buttonEffect = document.createElement('div');
+	buttonEffect.className =
+		'absolute top-0 w-full h-full border-2 border-teal-500 animate-ripple';
 
 	Array.from(keys).map((key) => {
 		key.addEventListener('click', () => {
@@ -67,8 +68,7 @@ function playAudioOnClick() {
 			);
 			if (audio) {
 				audio.play();
-				// key.append(buttonEffect);
-				// console.log(key);
+				key.append(buttonEffect);
 			}
 		});
 	});

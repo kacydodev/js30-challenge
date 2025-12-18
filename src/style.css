@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --animate-ripple: ripple 1s ease-out;
+  --animate-ripple: ripple 1s ease-in-out;
 }
 
 @layer base {
@@ -48,12 +48,8 @@
 }
 
 @keyframes ripple {
-  50% {
-    @apply bg-red-500;
-  }
-
   75%, 100% {
-    transform: scale(2);
-    opacity: 100%;
+    transform: scale(1.5);
+    opacity: 0%;
   }
 }
